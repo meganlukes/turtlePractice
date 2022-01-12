@@ -20,14 +20,21 @@ spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not col
 #     spike.forward(10)
 #     spike.pd()
 #draw nested shapes in random colors
-for turn in range(4, 9):
-    angle = 360/turn
-    circle = 0
+# for turn in range(4, 9):
+#     angle = 360/turn
+#     circle = 0
+#     spike.color(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+#     while circle < 360:
+#         spike.forward(80)
+#         spike.right(angle)
+#         circle += angle
+turns = 0
+while turns < 5:
     spike.color(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
-    while circle < 360:
-        spike.forward(80)
-        spike.right(angle)
-        circle += angle
+    spike.width(10)
+    spike.right(90 * random.randint(0, 5))
+    spike.right(360)
+    spike.forward(30)
 
 
 
