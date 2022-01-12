@@ -1,4 +1,5 @@
 from turtle import Turtle, Screen
+import random
 # can use from turtle import * to import all modules, not often used because it is confusing
 # can also "import [module] as [alias]", i.e. "import turtle as t" so you can write "spike = t.Turtle()" instead of "spike = turtle.Turtle()"
 
@@ -18,7 +19,15 @@ spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not col
 #     spike.pu()
 #     spike.forward(10)
 #     spike.pd()
-
+#draw nested shapes in random colors
+for turn in range(4, 9):
+    angle = 360/turn
+    circle = 0
+    spike.color(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+    while circle < 360:
+        spike.forward(80)
+        spike.right(angle)
+        circle += angle
 
 
 
