@@ -28,17 +28,20 @@ spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not col
 #         spike.forward(80)
 #         spike.right(angle)
 #         circle += angle
-turns = 0
-while turns < 5:
+#draw random path
+# turns = 0
+# while turns < 5:
+#     spike.color(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+#     spike.width(10)
+#     spike.right(90 * random.randint(0, 5))
+#     spike.right(360)
+#     spike.forward(30)
+
+#draw spirograph
+for num in range(15):
     spike.color(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
-    spike.width(10)
-    spike.right(90 * random.randint(0, 5))
-    spike.right(360)
-    spike.forward(30)
-
-
-
-
+    spike.setheading(num * 24)
+    spike.circle(50)
 
 
 
