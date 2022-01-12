@@ -9,9 +9,15 @@ spike.shape("arrow")
 screen.colormode(255)
 spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not color()
 #draw a square
-for _ in range(4):
-    spike.forward(100)
-    spike.right(90)
+# for _ in range(4):
+#     spike.forward(100)
+#     spike.right(90)
+#draw a dotted line
+# for _ in range(8):
+#     spike.forward(10)
+#     spike.pu()
+#     spike.forward(10)
+#     spike.pd()
 
 
 
