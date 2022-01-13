@@ -11,6 +11,26 @@ spike.shape("arrow")
 screen.colormode(255)
 spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not color()
 
+
+#etch-a-sketch game
+def move_forwards():
+    spike.forward(10)
+def move_backwards():
+    spike.backward(10)
+def move_counterclockwise():
+    spike.left(10)
+def move_clockwise():
+    spike.right(10)
+def clear_drawing():
+    spike.clear()
+screen.listen()
+screen.onkey(key="w", fun=move_forwards)
+screen.onkey(key="s", fun=move_backwards)
+screen.onkey(key="a", fun=move_counterclockwise)
+screen.onkey(key="d", fun=move_clockwise)
+screen.onkey(key="c", fun=clear_drawing)
+screen.exitonclick()
+
 #draw a square
 # for _ in range(4):
 #     spike.forward(100)
@@ -47,19 +67,19 @@ spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not col
 
 #Make a hirst painting
 #Extract colors
-colors = colorgram.extract('hirst.jpg', 10)
-color_list = [(229, 228, 226), (225, 223, 224), (199, 175, 117), (124, 36, 24), (210, 221, 213), (168, 106, 57), (222, 224, 227), (186, 158, 53), (6, 57, 83), (109, 67, 85)]
+# colors = colorgram.extract('hirst.jpg', 10)
+# color_list = [(229, 228, 226), (225, 223, 224), (199, 175, 117), (124, 36, 24), (210, 221, 213), (168, 106, 57), (222, 224, 227), (186, 158, 53), (6, 57, 83), (109, 67, 85)]
 
 #draw 10 x 10 rows of dots
-spike.pu()
-spike.sety(-300)
-for dot in range(10):
-    spike.setx(-300)
-    for num in range(10):
-        spike.dot(20, color_list[random.randint(0, 9)])
-        spike.fd(50)
-    spike.sety((50 * (dot + 1)) - 300)
-screen.exitonclick()
+# spike.pu()
+# spike.sety(-300)
+# for dot in range(10):
+#     spike.setx(-300)
+#     for num in range(10):
+#         spike.dot(20, color_list[random.randint(0, 9)])
+#         spike.fd(50)
+#     spike.sety((50 * (dot + 1)) - 300)
+# screen.exitonclick()
 
 # class Bamboo:
 #
