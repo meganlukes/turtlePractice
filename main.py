@@ -1,5 +1,6 @@
 from turtle import Turtle, Screen
 import random
+import colorgram
 # can use from turtle import * to import all modules, not often used because it is confusing
 # can also "import [module] as [alias]", i.e. "import turtle as t" so you can write "spike = t.Turtle()" instead of "spike = turtle.Turtle()"
 
@@ -9,6 +10,7 @@ screen = Screen()
 spike.shape("arrow")
 screen.colormode(255)
 spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not color()
+
 #draw a square
 # for _ in range(4):
 #     spike.forward(100)
@@ -38,14 +40,25 @@ spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not col
 #     spike.forward(30)
 
 #draw spirograph
-for num in range(15):
-    spike.color(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
-    spike.setheading(num * 24)
-    spike.circle(50)
+# for num in range(15):
+#     spike.color(random.randint(1, 255), random.randint(1, 255), random.randint(1, 255))
+#     spike.setheading(num * 24)
+#     spike.circle(50)
 
+#Make a hirst painting
+#Extract colors
+colors = colorgram.extract('hirst.jpg', 10)
+color_list = [(229, 228, 226), (225, 223, 224), (199, 175, 117), (124, 36, 24), (210, 221, 213), (168, 106, 57), (222, 224, 227), (186, 158, 53), (6, 57, 83), (109, 67, 85)]
 
-
-
+#draw 10 x 10 rows of dots
+spike.pu()
+spike.sety(-300)
+for dot in range(10):
+    spike.setx(-300)
+    for num in range(10):
+        spike.dot(20, color_list[random.randint(0, 9)])
+        spike.fd(50)
+    spike.sety((50 * (dot + 1)) - 300)
 screen.exitonclick()
 
 # class Bamboo:
