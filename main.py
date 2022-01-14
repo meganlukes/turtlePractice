@@ -5,31 +5,62 @@ import colorgram
 # can also "import [module] as [alias]", i.e. "import turtle as t" so you can write "spike = t.Turtle()" instead of "spike = turtle.Turtle()"
 
 
-spike = Turtle()
+# spike = Turtle()
+# spike.penup()
 screen = Screen()
-spike.shape("arrow")
-screen.colormode(255)
-spike.color(116, 95, 217)      #Weird, RGB was supposed to be pencolor() not color()
+colors = ["pink", "purple", "blue", "green", "brown"]
+all_turtles = []
+# spike.shape("turtle")
+# screen.colormode(255)
+# spike.color("pink")      #Weird, RGB was supposed to be pencolor() not color()
 
+#Turtle Race
+screen.setup(width=500, height=400)
+user_choice = screen.textinput(title="Make your pick", prompt="Which turtle will win the race? Pick a color: ")
+for number in range(5):
+    new_turtle = Turtle(shape="turtle")
+    new_turtle.color(colors[number])
+    new_turtle.penup()
+    new_turtle.goto(x=-225, y=((50 * number) - 100))
+    all_turtles.append(new_turtle)
+
+is_race_on = False
+if user_choice:
+    is_race_on = True
+
+while is_race_on:
+    for turtle in all_turtles:
+        random_distance = random.randint(0, 10)
+        turtle.forward(random_distance)
+        if turtle.xcor() > 200:
+            is_race_on = False
+            print(f"{turtle.pencolor()} is the winner!")
+            if user_choice.lower() == turtle.pencolor():
+                print("You won :D")
+            else:
+                print("You lost :(")
+# spike.goto(x=-225, y=-100)
+
+screen.exitonclick()
 
 #etch-a-sketch game
-def move_forwards():
-    spike.forward(10)
-def move_backwards():
-    spike.backward(10)
-def move_counterclockwise():
-    spike.left(10)
-def move_clockwise():
-    spike.right(10)
-def clear_drawing():
-    spike.clear()
-screen.listen()
-screen.onkey(key="w", fun=move_forwards)
-screen.onkey(key="s", fun=move_backwards)
-screen.onkey(key="a", fun=move_counterclockwise)
-screen.onkey(key="d", fun=move_clockwise)
-screen.onkey(key="c", fun=clear_drawing)
-screen.exitonclick()
+# def move_forwards():
+#     spike.forward(10)
+# def move_backwards():
+#     spike.backward(10)
+# def move_counterclockwise():
+#     spike.left(10)
+# def move_clockwise():
+#     spike.right(10)
+# def clear_drawing():
+#     spike.clear()
+# screen.listen()
+# screen.onkey(key="w", fun=move_forwards)
+# screen.onkey(key="s", fun=move_backwards)
+# screen.onkey(key="a", fun=move_counterclockwise)
+# screen.onkey(key="d", fun=move_clockwise)
+# screen.onkey(key="c", fun=clear_drawing)
+# screen.exitonclick()
 
 #draw a square
 # for _ in range(4):
